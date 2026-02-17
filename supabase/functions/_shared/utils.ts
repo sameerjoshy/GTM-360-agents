@@ -55,7 +55,7 @@ export async function llmCall({ system, user, schema, model, temperature = 0.3 }
   if (!OPENROUTER_KEY) throw new Error('OPENROUTER_API_KEY not set')
 
   // Model routing: use best free model per task type
-  const selectedModel = model || 'meta-llama/llama-3.2-3b-instruct:free'
+  const selectedModel = model || 'deepseek/deepseek-chat'
 
   const messages = [
     { role: 'system', content: system },
