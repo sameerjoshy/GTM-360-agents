@@ -80,12 +80,12 @@ ${webContext || 'No web context available.'}
 Produce a GTM state diagnostic. Be honest about confidence. Flag contradictions. Do not invent signals.`
 
     const SCHEMA = {
-      state_summary: "string — answer each of the 5 planning cycle questions with 2-3 sentences each",
-      constraint_map: "string — top 3 friction points with the specific signal that surfaced each",
-      what_working: "string — what the data suggests is working, with signal citation",
-      strategic_observation: "string — one sharp, non-obvious observation about this company's GTM state",
-      recommended_next_agents: ["array of agent IDs from: planning-cycle, icp-clarifier, signals-scout, hygiene, forecast-analyser"],
-      gaps: ["array of strings — what could not be assessed and why"],
+      state_summary: "Answer each of the 5 planning cycle questions with 2-3 sentences each. Format as a single text block.",
+      constraint_map: "Top 3 friction points with the specific signal that surfaced each. Format as text.",
+      what_working: "What the data suggests is working, with signal citation. Format as text.",
+      strategic_observation: "One sharp, non-obvious observation about this company's GTM state. Format as text.",
+      recommended_next_agents: [],
+      gaps: [],
     }
 
     const synthesis = await llmCall({ system: SYSTEM, user: USER, schema: SCHEMA, temperature: 0.3 })
