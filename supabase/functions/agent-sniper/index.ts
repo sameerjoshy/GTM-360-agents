@@ -100,7 +100,7 @@ Score the draft against these criteria and return structured JSON.`
       system: CRITIQUE_SYSTEM,
       user: `Channel: ${channel}\nDraft:\n${draftA.message}\nTone canon: No urgency manufacturing, no false familiarity, customer is hero, be specific.`,
       schema: CRITIQUE_SCHEMA,
-      model: 'meta-llama/llama-3.1-8b-instruct:free',
+      model: 'qwen/qwen-2.5-7b-instruct',
       temperature: 0.1,
     })
 

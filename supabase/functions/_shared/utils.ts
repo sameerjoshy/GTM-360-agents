@@ -115,7 +115,7 @@ ${rules.map((r, i) => `${i + 1}. ${r}`).join('\n')}
 Return JSON: { "passed": boolean, "score": 1-10, "issues": string[], "improvements": string[] }`,
     user: `Output to evaluate:\n${JSON.stringify(output, null, 2)}`,
     schema: { passed: true, score: 8, issues: [], improvements: [] },
-    model: 'meta-llama/llama-3.1-8b-instruct:free', // Fast + cheap for verification
+    model: 'qwen/qwen-2.5-7b-instruct', // Fast + cheap for verification
     temperature: 0.1,
   })
   return critique
