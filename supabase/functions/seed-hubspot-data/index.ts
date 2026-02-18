@@ -13,16 +13,16 @@ Deno.serve(async (req) => {
 
     // Create 10 companies
     const companyData = [
-      { name: 'Acme SaaS Inc', industry: 'Software', employees: 150, revenue: 15000000, domain: 'acmesaas.com' },
-      { name: 'TechFlow Solutions', industry: 'Technology', employees: 80, revenue: 8000000, domain: 'techflow.io' },
-      { name: 'DataSync Corp', industry: 'Data & Analytics', employees: 200, revenue: 25000000, domain: 'datasync.com' },
-      { name: 'CloudNine Systems', industry: 'Cloud Infrastructure', employees: 120, revenue: 18000000, domain: 'cloudnine.io' },
-      { name: 'SecurityFirst Inc', industry: 'Cybersecurity', employees: 90, revenue: 12000000, domain: 'securityfirst.com' },
-      { name: 'MarketPro Analytics', industry: 'Marketing Technology', employees: 60, revenue: 6000000, domain: 'marketpro.ai' },
-      { name: 'SalesBoost Platform', industry: 'Sales Enablement', employees: 70, revenue: 9000000, domain: 'salesboost.com' },
-      { name: 'FinOps Technologies', industry: 'Financial Services', employees: 110, revenue: 14000000, domain: 'finopstech.com' },
-      { name: 'DevTools Inc', industry: 'Developer Tools', employees: 45, revenue: 5000000, domain: 'devtools.dev' },
-      { name: 'AutoScale Systems', industry: 'DevOps', employees: 85, revenue: 10000000, domain: 'autoscale.io' },
+      { name: 'Acme SaaS Inc', industry: 'COMPUTER_SOFTWARE', employees: 150, revenue: 15000000, domain: 'acmesaas.com' },
+      { name: 'TechFlow Solutions', industry: 'INFORMATION_TECHNOLOGY_AND_SERVICES', employees: 80, revenue: 8000000, domain: 'techflow.io' },
+      { name: 'DataSync Corp', industry: 'INFORMATION_SERVICES', employees: 200, revenue: 25000000, domain: 'datasync.com' },
+      { name: 'CloudNine Systems', industry: 'INTERNET', employees: 120, revenue: 18000000, domain: 'cloudnine.io' },
+      { name: 'SecurityFirst Inc', industry: 'COMPUTER_NETWORK_SECURITY', employees: 90, revenue: 12000000, domain: 'securityfirst.com' },
+      { name: 'MarketPro Analytics', industry: 'MARKETING_AND_ADVERTISING', employees: 60, revenue: 6000000, domain: 'marketpro.ai' },
+      { name: 'SalesBoost Platform', industry: 'COMPUTER_SOFTWARE', employees: 70, revenue: 9000000, domain: 'salesboost.com' },
+      { name: 'FinOps Technologies', industry: 'FINANCIAL_SERVICES', employees: 110, revenue: 14000000, domain: 'finopstech.com' },
+      { name: 'DevTools Inc', industry: 'COMPUTER_SOFTWARE', employees: 45, revenue: 5000000, domain: 'devtools.dev' },
+      { name: 'AutoScale Systems', industry: 'INFORMATION_TECHNOLOGY_AND_SERVICES', employees: 85, revenue: 10000000, domain: 'autoscale.io' },
     ]
 
     for (const company of companyData) {
