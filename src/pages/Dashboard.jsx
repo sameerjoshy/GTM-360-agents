@@ -91,10 +91,10 @@ export function Dashboard() {
       {/* Header */}
       <div className="mb-8">
         <div className="font-mono text-xs uppercase tracking-widest text-slate-400 mb-2">
-          GTM-360 · Agent Swarm
+          GTM-360 · Crew
         </div>
         <h1 className="text-2xl font-bold text-slate-900 tracking-tight mb-2">
-          The Commercial Engine
+          Specialist agents on call
         </h1>
         <p className="text-sm text-slate-500 max-w-xl">
           {AGENTS.length} agents across {swarms.length} swarms. Each agent follows a four-step chain: gather real data, validate quality, synthesise with LLM, verify output. No vanity — every agent changes what you do next.

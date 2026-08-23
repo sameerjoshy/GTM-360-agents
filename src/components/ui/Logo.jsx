@@ -1,5 +1,5 @@
-// GTM-360 Agents logo — inherits the circular arrow motif from the parent brand
-// Navy wordmark + indigo circular mark + "Agents" sub-label
+// GTM-360 Crew logo — inherits the circular arrow motif from the parent brand
+// Navy wordmark + indigo circular mark + "Crew" sub-label
 
 export function AgentsLogo({ size = 'md', variant = 'full' }) {
   const sizes = {
@@ -37,7 +37,7 @@ export function AgentsLogo({ size = 'md', variant = 'full' }) {
           GTM-360
         </span>
         <span style={{ fontSize: s.textSub, fontWeight: 500, color: '#4F46E5', fontFamily: 'Inter, sans-serif', letterSpacing: '0.06em', textTransform: 'uppercase', marginTop: 1 }}>
-          Agents
+          Crew
         </span>
       </div>
     </div>

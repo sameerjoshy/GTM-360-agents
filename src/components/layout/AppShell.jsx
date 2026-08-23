@@ -38,6 +38,34 @@ function SwarmNavItem({ swarm }) {
   )
 }
 
+const PRODUCTS = [
+  { key: 'compass', name: 'Compass', url: 'https://okr.gtm-360.com' },
+  { key: 'cockpit', name: 'Cockpit', url: 'https://brain.gtm-360.com' },
+  { key: 'crew', name: 'Crew', url: 'https://agents.gtm-360.com' },
+]
+
+function ProductSwitcher() {
+  return (
+    <div className="px-3 pt-4 pb-1">
+      <span className="font-mono text-[10px] tracking-widest uppercase text-white/25">GTM-360</span>
+      <div className="flex gap-1 mt-2 rounded-lg bg-white/5 p-1">
+        {PRODUCTS.map((p) => (
+          p.key === 'crew' ? (
+            <span key={p.key} className="flex-1 text-center text-xs font-semibold py-1.5 rounded bg-white/15 text-white">
+              {p.name}
+            </span>
+          ) : (
+            <a key={p.key} href={p.url}
+              className="flex-1 text-center text-xs font-semibold py-1.5 rounded text-white/45 hover:text-white hover:bg-white/10 transition-colors cursor-pointer">
+              {p.name}
+            </a>
+          )
+        ))}
+      </div>
+    </div>
+  )
+}
+
 export function AppShell({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const location = useLocation()
@@ -73,6 +101,9 @@ export function AppShell({ children }) {
             <X size={18} />
           </button>
         </div>
+
+        {/* Product switcher */}
+        <ProductSwitcher />
 
         {/* System status */}
         <div className="px-5 py-3 border-b border-white/8">
@@ -115,15 +146,20 @@ export function AppShell({ children }) {
 
         {/* Footer */}
         <div className="px-5 py-4 border-t border-white/8 space-y-2">
-          <a href="https://gtm-360.com" target="_blank" rel="noopener noreferrer"
+          <a href="https://okr.gtm-360.com" target="_blank" rel="noopener noreferrer"
             className="flex items-center gap-2 text-xs text-white/30 hover:text-white/60 transition-colors">
             <ExternalLink size={12} />
-            Back to gtm-360.com
+            Compass — set the course
           </a>
-          <a href="https://gtm-360.com/contact" target="_blank" rel="noopener noreferrer"
+          <a href="https://brain.gtm-360.com" target="_blank" rel="noopener noreferrer"
+            className="flex items-center gap-2 text-xs text-white/30 hover:text-white/60 transition-colors">
+            <ExternalLink size={12} />
+            Cockpit — command execution
+          </a>
+          <a href="https://gtm-360.com" target="_blank" rel="noopener noreferrer"
             className="flex items-center gap-2 text-xs text-white/30 hover:text-white/60 transition-colors">
             <ChevronRight size={12} />
-            Request access / support
+            Back to gtm-360.com
           </a>
         </div>
       </aside>
