@@ -68,9 +68,17 @@ function ProductSwitcher() {
 
 export function AppShell({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [identity, setIdentity] = useState(null)
   const location = useLocation()
 
   useEffect(() => { setSidebarOpen(false) }, [location])
+
+  useEffect(() => {
+    const match = document.cookie.match(/(?:^|;\s*)gtm360_id=([^;]+)/)
+    if (match) {
+      try { setIdentity(JSON.parse(decodeURIComponent(atob(match[1])))) } catch { /* ignore */ }
+    }
+  }, [])
 
   const swarms = Object.values(SWARM_META)
   const liveTotal = AGENTS.filter(a => a.status === 'live').length
@@ -146,6 +154,12 @@ export function AppShell({ children }) {
 
         {/* Footer */}
         <div className="px-5 py-4 border-t border-white/8 space-y-2">
+          {identity && (
+            <p className="text-xs text-white/40 truncate">
+              Signed in as <span className="text-white/70 font-medium">{identity.name || identity.email}</span>
+              <a href="https://okr.gtm-360.com" className="block text-white/30 hover:text-white/60 transition-colors">Compass — your GTM-360 account</a>
+            </p>
+          )}
           <a href="https://okr.gtm-360.com" target="_blank" rel="noopener noreferrer"
             className="flex items-center gap-2 text-xs text-white/30 hover:text-white/60 transition-colors">
             <ExternalLink size={12} />
