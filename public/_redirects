@@ -1,1 +1,4 @@
-/*    /index.html   200
+# Crew is retired: gtm-360-agents.pages.dev is now a redirect to the single
+# Agent Portal surface (agents.gtm-360.com). The app code stays in-repo for
+# reference, but this deployment no longer serves a parallel catalog.
+/*    https://agents.gtm-360.com    301
