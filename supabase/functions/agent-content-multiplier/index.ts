@@ -72,7 +72,7 @@ FORMAT RULES:
       system: `You are a tone checker. Evaluate if content follows these rules: no scare tactics, no urgency manufacturing, no AI magic language, customer is hero, factual claims only. Return JSON: { passed: boolean, violations: string[] }`,
       user: Object.values(result).join('\n\n---\n\n'),
       schema: { passed: true, violations: [] },
-      model: 'qwen/qwen-2.5-7b-instruct',
+      model: 'deepseek-chat',
       temperature: 0.1,
     })
 

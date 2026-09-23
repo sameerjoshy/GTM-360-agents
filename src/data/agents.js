@@ -3,11 +3,11 @@
 // Every agent follows the 4-step chain: GATHER → VALIDATE → SYNTHESISE → VERIFY
 
 export const SWARM_META = {
-  strategy:  { id: 'strategy',  label: 'Strategy',         color: '#7C3AED', bg: '#F5F3FF', border: '#DDD6FE', description: 'Diagnose · Orient · Plan' },
+  strategy:  { id: 'strategy',  label: 'Strategy',         color: '#2563eb', bg: '#EFF6FF', border: '#BFDBFE', description: 'Know who to serve · Decide what to do' },
   sales:     { id: 'sales',     label: 'Sales',            color: '#D97706', bg: '#FFFBEB', border: '#FDE68A', description: 'Pipeline · Qualify · Close' },
-  marketing: { id: 'marketing', label: 'Marketing',        color: '#0284C7', bg: '#F0F9FF', border: '#BAE6FD', description: 'Signal · Create · Distribute' },
-  cs:        { id: 'cs',        label: 'Customer Success', color: '#059669', bg: '#ECFDF5', border: '#A7F3D0', description: 'Retain · Expand · Advocate' },
-  revops:    { id: 'revops',    label: 'RevOps',           color: '#475569', bg: '#F8FAFC', border: '#CBD5E1', description: 'Govern · Forecast · Enable' },
+  marketing: { id: 'marketing', label: 'Marketing',        color: '#10b981', bg: '#ECFDF5', border: '#A7F3D0', description: 'Attract · Position · ABM · Content' },
+  expansion: { id: 'expansion', label: 'Expansion',         color: '#0d9488', bg: '#F0FDFA', border: '#99F6E4', description: 'Retain · Grow · Land-and-expand' },
+  operations:{ id: 'operations', label: 'Operations',       color: '#475569', bg: '#F8FAFC', border: '#CBD5E1', description: 'Validate · Forecast · Learn' },
 };
 
 export const AGENTS = [
@@ -395,7 +395,7 @@ export const AGENTS = [
 
   {
     id: 'health-monitor',
-    swarm: 'cs',
+    swarm: 'expansion',
     name: 'Health Monitor',
     role: 'Account Health Scoring',
     status: 'demo',
@@ -432,7 +432,7 @@ export const AGENTS = [
 
   {
     id: 'churn-predictor',
-    swarm: 'cs',
+    swarm: 'expansion',
     name: 'Churn Predictor',
     role: 'Retention Risk Engine',
     status: 'demo',
@@ -468,7 +468,7 @@ export const AGENTS = [
 
   {
     id: 'expansion-radar',
-    swarm: 'cs',
+    swarm: 'expansion',
     name: 'Expansion Radar',
     role: 'Upsell Signal Detection',
     status: 'demo',
@@ -505,7 +505,7 @@ export const AGENTS = [
 
   {
     id: 'hygiene',
-    swarm: 'revops',
+    swarm: 'operations',
     name: 'Hygiene Agent',
     role: 'CRM Data Integrity Monitor',
     status: 'live',
@@ -539,7 +539,7 @@ export const AGENTS = [
 
   {
     id: 'forecast-analyser',
-    swarm: 'revops',
+    swarm: 'operations',
     name: 'Forecast Analyser',
     role: 'Forecast Confidence Engine',
     status: 'live',
@@ -575,7 +575,7 @@ export const AGENTS = [
 
   {
     id: 'workflow-builder',
-    swarm: 'revops',
+    swarm: 'operations',
     name: 'Workflow Builder',
     role: 'RevOps Automation Architect',
     status: 'planned',

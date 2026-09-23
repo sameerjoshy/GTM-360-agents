@@ -42,6 +42,8 @@ const PRODUCTS = [
   { key: 'compass', name: 'Compass', url: 'https://okr.gtm-360.com' },
   { key: 'cockpit', name: 'Cockpit', url: 'https://brain.gtm-360.com' },
   { key: 'crew', name: 'Crew', url: 'https://agents.gtm-360.com' },
+  { key: 'method', name: 'Method', url: 'https://gtm.gtm-360.com' },
+  { key: 'content', name: 'Content', url: 'https://content.gtm-360.com' },
 ]
 
 function ProductSwitcher() {
@@ -127,7 +129,7 @@ export function AppShell({ children }) {
           {/* Overview */}
           <div className="px-3 pb-1">
             <span className="font-mono text-[10px] tracking-widest uppercase text-white/25">
-              Overview
+              Explore
             </span>
           </div>
           <NavLink to="/"
@@ -137,8 +139,28 @@ export function AppShell({ children }) {
                 ? 'bg-white/10 text-white'
                 : 'text-white/50 hover:text-white/80 hover:bg-white/5'}
             `}>
+            <span className="text-base">◈</span>
+            <span>Framework</span>
+          </NavLink>
+          <NavLink to="/agents"
+            className={({ isActive }) => `
+              flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-150
+              ${isActive
+                ? 'bg-white/10 text-white'
+                : 'text-white/50 hover:text-white/80 hover:bg-white/5'}
+            `}>
             <span className="text-base">⬡</span>
-            <span>Dashboard</span>
+            <span>Agents</span>
+          </NavLink>
+          <NavLink to="/tools"
+            className={({ isActive }) => `
+              flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-150
+              ${isActive
+                ? 'bg-white/10 text-white'
+                : 'text-white/50 hover:text-white/80 hover:bg-white/5'}
+            `}>
+            <span className="text-base">⚙</span>
+            <span>Tool Index</span>
           </NavLink>
 
           {/* Swarms */}

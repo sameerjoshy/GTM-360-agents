@@ -66,7 +66,7 @@ export function SwarmPage() {
       <div className="flex items-start gap-4 mb-8">
         <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl flex-shrink-0"
           style={{ background: swarm.bg }}>
-          {swarmId === 'strategy' ? '🧭' : swarmId === 'sales' ? '⚡' : swarmId === 'marketing' ? '📣' : swarmId === 'cs' ? '💚' : '⚙️'}
+          {swarmId === 'strategy' ? '🧭' : swarmId === 'sales' ? '⚡' : swarmId === 'marketing' ? '📣' : swarmId === 'expansion' ? '💚' : '⚙️'}
         </div>
         <div>
           <div className="flex items-center gap-2 mb-1">

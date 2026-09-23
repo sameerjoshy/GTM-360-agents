@@ -49,13 +49,12 @@ export async function tavilySearch(query, options = {}) {
   return res.json()
 }
 
-// ── OpenRouter LLM call ──────────────────────────────────────────────────────
+// ── DeepSeek LLM call ────────────────────────────────────────────────────────
 export async function llmCall({ system, user, schema, model, temperature = 0.3 }) {
-  const OPENROUTER_KEY = Deno.env.get('OPENROUTER_API_KEY')
-  if (!OPENROUTER_KEY) throw new Error('OPENROUTER_API_KEY not set')
+  const DEEPSEEK_KEY = Deno.env.get('DEEPSEEK_API_KEY')
+  if (!DEEPSEEK_KEY) throw new Error('DEEPSEEK_API_KEY not set')
 
-  // Model routing: use best free model per task type
-  const selectedModel = model || 'qwen/qwen-2.5-7b-instruct'
+  const selectedModel = model || 'deepseek-chat'
 
   const messages = [
     { role: 'system', content: system },
@@ -67,20 +66,22 @@ export async function llmCall({ system, user, schema, model, temperature = 0.3 }
     messages[0].content += `\n\nCRITICAL: Respond ONLY with valid JSON matching this exact schema. No markdown, no code blocks, no preamble:\n${JSON.stringify(schema, null, 2)}`
   }
 
-  const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+  const body: Record<string, unknown> = {
+    model: selectedModel,
+    messages,
+    temperature,
+    max_tokens: 2000,
+    stream: false,
+  }
+  if (schema) body.response_format = { type: 'json_object' }
+
+  const res = await fetch('https://api.deepseek.com/chat/completions', {
     method: 'POST',
     headers: {
-      'Authorization': `Bearer ${OPENROUTER_KEY}`,
+      'Authorization': `Bearer ${DEEPSEEK_KEY}`,
       'Content-Type': 'application/json',
-      'HTTP-Referer': 'https://agents.gtm-360.com',
-      'X-Title': 'GTM-360 Agents',
     },
-    body: JSON.stringify({
-      model: selectedModel,
-      messages,
-      temperature,
-      max_tokens: 2000,
-    }),
+    body: JSON.stringify(body),
   })
 
   if (!res.ok) {
@@ -115,7 +116,7 @@ ${rules.map((r, i) => `${i + 1}. ${r}`).join('\n')}
 Return JSON: { "passed": boolean, "score": 1-10, "issues": string[], "improvements": string[] }`,
     user: `Output to evaluate:\n${JSON.stringify(output, null, 2)}`,
     schema: { passed: true, score: 8, issues: [], improvements: [] },
-    model: 'qwen/qwen-2.5-7b-instruct', // Fast + cheap for verification
+    model: 'deepseek-chat', // Fast + cheap for verification
     temperature: 0.1,
   })
   return critique
