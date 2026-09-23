@@ -38,12 +38,12 @@ function SwarmNavItem({ swarm }) {
   )
 }
 
+// Live surfaces only. Crew (this app) is retired into the Agent Portal; Content is
+// the same app as the portal; Method 301s to /wiki. See the three-surface IA.
 const PRODUCTS = [
   { key: 'compass', name: 'Compass', url: 'https://okr.gtm-360.com' },
   { key: 'cockpit', name: 'Cockpit', url: 'https://brain.gtm-360.com' },
-  { key: 'crew', name: 'Crew', url: 'https://agents.gtm-360.com' },
-  { key: 'method', name: 'Method', url: 'https://gtm.gtm-360.com' },
-  { key: 'content', name: 'Content', url: 'https://content.gtm-360.com' },
+  { key: 'agents', name: 'Agent Portal', url: 'https://agents.gtm-360.com' },
 ]
 
 function ProductSwitcher() {
@@ -52,16 +52,10 @@ function ProductSwitcher() {
       <span className="font-mono text-[10px] tracking-widest uppercase text-white/25">GTM-360</span>
       <div className="flex gap-1 mt-2 rounded-lg bg-white/5 p-1">
         {PRODUCTS.map((p) => (
-          p.key === 'crew' ? (
-            <span key={p.key} className="flex-1 text-center text-xs font-semibold py-1.5 rounded bg-white/15 text-white">
-              {p.name}
-            </span>
-          ) : (
-            <a key={p.key} href={p.url}
-              className="flex-1 text-center text-xs font-semibold py-1.5 rounded text-white/45 hover:text-white hover:bg-white/10 transition-colors cursor-pointer">
-              {p.name}
-            </a>
-          )
+          <a key={p.key} href={p.url}
+            className="flex-1 text-center text-xs font-semibold py-1.5 rounded text-white/45 hover:text-white hover:bg-white/10 transition-colors cursor-pointer">
+            {p.name}
+          </a>
         ))}
       </div>
     </div>
